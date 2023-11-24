@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- force IE browsers in compatibility mode to use their most aggressive rendering engine -->
+    <meta charset="utf-8">
+    <title>Go Api Status</title>
+    <meta name="description"
+          content="Welcome to Discord&#39;s home for real-time and historical data on system performance.">
+
+    <!-- Mobile viewport optimization -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <link rel="shortcut icon" type="image/x-icon"
+          href="//dka575ofm4ao0.cloudfront.net/pages-favicon_logos/original/15011/favicon.ico"/>
+    <link rel="shortcut icon" href='//dka575ofm4ao0.cloudfront.net/pages-favicon_logos/original/15011/favicon.ico'>
+    <!-- screen css -->
+    <link rel="stylesheet" media="screen" href="/assets/css/screen.css"/>
+    <!-- style all css -->
+    <link rel="stylesheet" media="all" href="/assets/css/style.css"/>
+    <link rel="stylesheet" media="all" href="/assets/css/style.css"/>
+    <!-- body css -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/body.css"/>
+    <!-- header css -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/header.css"/>
+
+</head>
+<body class="status index status-none">
+<div class="layout-content status status-index starter">
+    <div class="masthead-container basic">
+        <div class="masthead has-logo">
+            <div class="logo-container">
+                <img alt="Page logo"
+                         src="/assets/images/logo.webp"/>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="page-status status-none">
+          <span class="status font-large">
+            All Systems Operational
+
+
+          </span>
+            <span class="last-updated-stamp  font-small"></span>
+        </div>
+        <div class="components-section font-regular">
+            <i class="component-status hidden major_outage"></i>
+            <div class="components-uptime-link history-footer-link">
+                Uptime over the pas
+            </div>
+            <div class="components-container one-column">
+                <div class="component-container border-color">
+                    <div class="component-inner-container status-green showcased"
+                         data-component-status="operational"
+                         data-js-hook="">
+                        <span id="endpointUtama" class="name">http://localhost:3000/</span>
+
+                        <span class="component-status " title="">Operational</span>
+                        <span class="tool icon-indicator fa fa-check" title="Operational"></span>
+                    </div>
+                </div>
+
+
+                {{range .Data.NamesRoutes}}
+
+                <div class="component-container border-color">
+                    <div class="component-inner-container status-green showcased"
+                         data-component-status="operational"
+                         data-js-hook="">
+                        <span class="name">{{.NameUrlRoute}} </span>
+                        {{if .Status}}
+                        <span class="component-status " title="">Active</span>
+                        <span class="tool icon-indicator fa fa-check" title="Operational"></span>
+                        {{else}}
+                        <span class="component-status " style="color: #ED4245;" title="">Non-Active</span>
+                        <span class="tool icon-indicator fa fa-check" title="Non-Active"></span>
+                        {{end}}
+                    </div>
+                </div>
+                {{end}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
